@@ -1,8 +1,12 @@
-function bla() {
-  console.log("Test");
-}
+window.addEventListener("load", function(){
+  // Tracking code
+  var win = document.getElementById("iframe").contentWindow
 
-bla();
-
-var referrer = document.referrer;
-console.log(referrer);
+  document.getElementById("button").onclick = function() {
+    win.postMessage(
+      "The user clicked the button with id: " + this.id,
+      "*"
+    )
+    return false
+  }
+});;
